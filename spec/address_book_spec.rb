@@ -30,6 +30,15 @@ RSpec.describe AddressBook do
 
 	end
 
+	describe "#nuke_all_entries" do
+		it "should delete all entries" do
+			book.import_from_csv("entries.csv")
+			book.nuke_all_entries
+			expect(book.entries.size).to eql 0
+		end
+	end
+
+
 
 	describe "#add_entry" do
 		it "adds only one entry to the address book" do
